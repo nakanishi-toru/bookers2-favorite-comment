@@ -1,0 +1,37 @@
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+        <h2>Log in</h2>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field"> 
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>  
+          </div>  
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <input name="user[remember_me]" type="hidden" value="0">
+            <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+            <label for="user_remember_me">Remember me</label>
+          </div>
+          <% end %>
+
+          <div class="actions">
+            <input type="submit" name="commit" value="Log in" class="btn btn-sm btn-primary mt-2" data-disable-with="Log in">
+          </div>
+          <% end %>
+        <a href="/users/sign_up">Sign up</a>
+        <br>  
+        <a href="/users/password/new">Forgot your password?</a>  
+        <br>  
+      </div>
+    </div>
+  </div>
+</main>
+
